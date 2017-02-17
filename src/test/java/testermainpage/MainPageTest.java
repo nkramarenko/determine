@@ -15,13 +15,16 @@ import static org.testng.Assert.*;
 public class MainPageTest {
 
     MainPage page;
+    ChapterOne page2;
     private String url = "http://book.theautomatedtester.co.uk/";
     CustomWait wait = new CustomWait();
     WebDriver chromeDriver = DriverTemplate.chromeDriver();
     String stringToCompare = "Assert that this text is on the page";
+
     @BeforeClass
     public void beforeClass() {
-        page = PageFactory.initElements(chromeDriver, MainPage.class);
+       page = PageFactory.initElements(chromeDriver, MainPage.class);
+       page2 = PageFactory.initElements(chromeDriver, ChapterOne.class);
     }
 
     @Test
@@ -36,13 +39,13 @@ public class MainPageTest {
         //clicking on Chapter One link
         page.clickElement(page.chapterOnelink);
         //waiting for element to sure page is loaded
-        wait.simpleWaitByXpath(page.returnDriver(), "//*[@id='divontheleft']");
+        wait.simpleWaitByXpath(page2.returnDriver(), "//*[@id='divontheleft']");
         //verifying presence of the text
-        assertEquals(page.assertText.getText(), stringToCompare);
+        assertEquals(page2.assertText.getText(), stringToCompare);
         //displaying page to user
         wait.timeWait();
         //clicking on Home page link
-        page.clickElement(page.homePageLink);
+        page.clickElement(page2.homePageLink);
         //displaying page to user
         wait.timeWait();
     }
