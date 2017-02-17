@@ -8,15 +8,18 @@ import org.openqa.selenium.support.How;
 /**
  * Created by nkramarenko on 2/16/2017.
  */
-public class MainPage {
+public class ChapterOne {
 
-    @FindBy(how = How.XPATH, xpath = "//*/div[2]/ul/li[1]/a")
-    WebElement chapterOnelink;
+    @FindBy(how = How.XPATH, xpath = "//*/div[2]/p[4]/a")
+    WebElement homePageLink;
+
+    @FindBy(how=How.ID, id = "divontheleft")
+    WebElement assertText;
 
     WebDriver webDriver;
     String url;
 
-    public MainPage(WebDriver webDriver) {
+    public ChapterOne(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
@@ -24,7 +27,7 @@ public class MainPage {
         webDriver.close();
     }
 
-    public MainPage open(String url) {
+    public ChapterOne open(String url) {
         webDriver.get(url);
 
         return this;
