@@ -17,20 +17,9 @@ public class ChapterOne {
     WebElement assertText;
 
     WebDriver webDriver;
-    String url;
 
     public ChapterOne(WebDriver webDriver) {
         this.webDriver = webDriver;
-    }
-
-    public void close() {
-        webDriver.close();
-    }
-
-    public ChapterOne open(String url) {
-        webDriver.get(url);
-
-        return this;
     }
 
     public WebDriver returnDriver() {

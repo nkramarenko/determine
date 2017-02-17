@@ -14,15 +14,11 @@ public class MainPage {
     WebElement chapterOnelink;
 
     WebDriver webDriver;
-    String url;
 
-    public MainPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+    public MainPage(WebDriver webDriverInput) {
+        this.webDriver = webDriverInput;
     }
 
-    public void close() {
-        webDriver.close();
-    }
 
     public MainPage open(String url) {
         webDriver.get(url);
